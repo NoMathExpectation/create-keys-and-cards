@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "NoMathExpectation.createKeysAndCards.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "create_keys_and_cards.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
