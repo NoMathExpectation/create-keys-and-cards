@@ -2,6 +2,8 @@ package NoMathExpectation.createKeysAndCards
 
 import com.simibubi.create.api.stress.BlockStressValues
 import com.tterrag.registrate.builders.BlockBuilder
+import net.createmod.catnip.lang.LangBuilder
+import net.createmod.catnip.lang.LangNumberFormat
 import net.createmod.catnip.registry.RegisteredObjectsHelper
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.level.block.Block
@@ -36,3 +38,7 @@ internal fun <B : Block, P> BlockBuilder<B, P>.setCapacity(supplier: () -> Doubl
 }
 
 internal fun <B : Block, P> BlockBuilder<B, P>.setCapacity(value: Double = 0.0) = setCapacity { value }
+
+val modLangBuilder get() = LangBuilder(modId)
+
+fun LangBuilder.number(value: Number): LangBuilder = text(LangNumberFormat.format(value.toDouble()))
