@@ -1,6 +1,10 @@
 package NoMathExpectation.createKeysAndCards
 
+import NoMathExpectation.createKeysAndCards.block.ModBlockEntityTypes
+import NoMathExpectation.createKeysAndCards.block.ModBlockTypes
 import NoMathExpectation.createKeysAndCards.block.ModBlocks
+import com.simibubi.create.foundation.data.CreateRegistrate
+import net.minecraft.resources.ResourceLocation
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.fml.common.Mod
@@ -23,11 +27,19 @@ object CreateKeysAndCards {
     // the logger for our mod
     val LOGGER: Logger = LogManager.getLogger(ID)
 
+    internal val registrate = CreateRegistrate.create(ID)
+
     init {
         LOGGER.log(Level.INFO, "Hello world!")
 
         // Register the KDeferredRegister to the mod-specific event bus
-        ModBlocks.REGISTRY.register(MOD_BUS)
+        registrate.registerEventListeners(MOD_BUS)
+
+        // reference objects to register things
+        ModCreativeTab
+        ModBlocks
+        ModBlockTypes
+        ModBlockEntityTypes
     }
 
     @SubscribeEvent
@@ -35,3 +47,7 @@ object CreateKeysAndCards {
         LOGGER.log(Level.INFO, "Create Keys and Cards Loading...")
     }
 }
+
+internal val modId get() = CreateKeysAndCards.ID
+internal val modRegistrate get() = CreateKeysAndCards.registrate
+internal val String.modResource get() = ResourceLocation.fromNamespaceAndPath(modId, this)

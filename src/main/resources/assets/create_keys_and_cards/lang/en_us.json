@@ -1,5 +1,4 @@
 {
-  "itemGroup.create_keys_and_cards": "Example Mod Tab",
-  "block.create_keys_and_cards.example_block": "Example Block",
-  "item.create_keys_and_cards.example_item": "Example Item"
+  "itemGroup.create_keys_and_cards.main": "Create: Keys and Cards",
+  "block.create_keys_and_cards.guardian_chamber": "Guardian Chamber"
 }
