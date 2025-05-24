@@ -3,6 +3,7 @@ package NoMathExpectation.createKeysAndCards
 import NoMathExpectation.createKeysAndCards.block.ModBlockEntityTypes
 import NoMathExpectation.createKeysAndCards.block.ModBlockTypes
 import NoMathExpectation.createKeysAndCards.block.ModBlocks
+import NoMathExpectation.createKeysAndCards.block.ModPoiTypes
 import com.simibubi.create.foundation.data.CreateRegistrate
 import net.minecraft.resources.ResourceLocation
 import net.neoforged.bus.api.SubscribeEvent
@@ -40,6 +41,7 @@ object CreateKeysAndCards {
         ModBlocks
         ModBlockTypes
         ModBlockEntityTypes
+        ModPoiTypes
     }
 
     @SubscribeEvent
@@ -48,6 +50,6 @@ object CreateKeysAndCards {
     }
 }
 
-internal val modId get() = CreateKeysAndCards.ID
+internal const val modId = CreateKeysAndCards.ID
 internal val modRegistrate get() = CreateKeysAndCards.registrate
 internal val String.modResource get() = ResourceLocation.fromNamespaceAndPath(modId, this)
